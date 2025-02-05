@@ -1,19 +1,20 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import React from "react";
+import { StyleSheet, ImageBackground, View,Text } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <ThemedView style={styles.container}>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText style={styles.title}>
-          EASY
-          <ThemedText style={styles.titleVoting}> VOTING </ThemedText>
-        </ThemedText>
-      </ThemedView>
-    </ThemedView>
+    <View style={styles.container}>
+      <ImageBackground
+        source={require("@/assets/images/screen-1-background.svg")} // Ensure this path is correct
+        style={styles.backgroundImage}
+        resizeMode="cover" 
+      >
+          <Text  className="text-[35] bg-white">
+            EASY
+            <Text style={styles.titleVoting}> VOTING </Text>
+          </Text>
+      </ImageBackground>
+    </View>
   );
 }
 
@@ -21,32 +22,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, // This makes the container take up the full screen height
   },
+  backgroundImage: {
+    flex: 1, // Ensure the ImageBackground takes up the full screen
+  },
   titleContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     gap: 8,
-    backgroundColor: '#111111',
+    opacity:1,
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
+    fontWeight: "bold",
+    color: "#FFFFFF", // Ensure text is visible on the background
   },
   titleVoting: {
     fontSize: 32,
-    fontWeight: 'bold',
-    color: '#00FF',
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+    fontWeight: "bold",
+    color: "#00FF",
   },
 });
