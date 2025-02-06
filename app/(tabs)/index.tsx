@@ -1,18 +1,17 @@
-import React from "react";
-import { StyleSheet, ImageBackground, View,Text } from "react-native";
+import React from 'react';
+import { StyleSheet, ImageBackground, View, Text } from 'react-native';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require("@/assets/images/screen-1-background.svg")} // Ensure this path is correct
-        style={styles.backgroundImage}
-        resizeMode="cover" 
+        source={require('@/assets/images/screen-1-background.svg')} // Use a supported image format or set up SVG transformer
+        style={styles.background}
+        resizeMode="cover"
       >
-          <Text  className="text-[35] bg-white">
-            EASY
-            <Text style={styles.titleVoting}> VOTING </Text>
-          </Text>
+        <Text style={styles.title}>
+          EASY <Text style={styles.subtitle}>VOTING</Text>
+        </Text>
       </ImageBackground>
     </View>
   );
@@ -20,26 +19,21 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1, // This makes the container take up the full screen height
+    flex: 1, // Full screen container
   },
-  backgroundImage: {
-    flex: 1, // Ensure the ImageBackground takes up the full screen
-  },
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 8,
-    opacity:1,
+  background: {
+    flex: 1, // Full screen background
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   title: {
-    fontSize: 32,
-    fontWeight: "bold",
-    color: "#FFFFFF", // Ensure text is visible on the background
+    fontSize: 35,
+    backgroundColor: 'white',
+    padding: 10,
   },
-  titleVoting: {
-    fontSize: 32,
-    fontWeight: "bold",
-    color: "#00FF",
+  subtitle: {
+    fontSize: 35,
+    fontWeight: 'bold',
+    color: '#00FF00', // Adjust the color as needed
   },
 });
