@@ -1,18 +1,23 @@
 import React from 'react';
-import { StyleSheet, ImageBackground, View, Text } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
+  const router = useRouter();
+
+  const handleVotePress = () => {
+    // Navigate to the vote screen (adjust the route if necessary)
+    router.push('/vote');
+  };
+
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require('@/assets/images/screen-1-background.svg')} // Use a supported image format or set up SVG transformer
-        style={styles.background}
-        resizeMode="cover"
-      >
-        <Text style={styles.title}>
-          EASY <Text style={styles.subtitle}>VOTING</Text>
-        </Text>
-      </ImageBackground>
+      <Text style={styles.title}>
+        EASY <Text style={styles.subtitle}>VOTING</Text>
+      </Text>
+      <TouchableOpacity style={styles.button} onPress={handleVotePress}>
+        <Text style={styles.buttonText}>Go to Vote</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -20,9 +25,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Full screen container
-  },
-  background: {
-    flex: 1, // Full screen background
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -34,6 +36,18 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 35,
     fontWeight: 'bold',
-    color: '#00FF00', // Adjust the color as needed
+    color: '#00FF00', // Brand color for subtitle text
+  },
+  button: {
+    backgroundColor: '#00FF00', // Brand color for button background
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginTop: 20,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
