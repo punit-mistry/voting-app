@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { Button } from "react-native-paper";
 interface VoteCardProps {
   candidateName: string;
   partyName: string;
@@ -16,12 +17,12 @@ const VoteCard = ({
   return (
     <View style={styles.card}>
       <View style={styles.header}>
-          <AntDesign
-            name={partyIcon}
-            size={40}
-            color="#333"
-            style={styles.icon}
-          />
+        <AntDesign
+          name={partyIcon}
+          size={40}
+          color="#333"
+          style={styles.icon}
+        />
         <View style={styles.info}>
           <Text style={styles.candidateName}>{candidateName}</Text>
           <Text style={styles.partyName}>{partyName}</Text>
@@ -31,6 +32,9 @@ const VoteCard = ({
         <Text style={styles.voteLabel}>Votes:</Text>
         <Text style={styles.voteCount}>{votes}</Text>
       </View>
+      <Button icon="" mode="outlined" style={styles.voteButton}>
+        Vote
+      </Button>
     </View>
   );
 };
@@ -83,6 +87,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: "#333", // brand color for vote count
+  },
+  voteButton: {
+    backgroundColor: "#fff",
+    color: "#00ff00",
   },
 });
 
